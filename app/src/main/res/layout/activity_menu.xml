@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp"
+    android:background="@drawable/bg_gradiente"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:paddingTop="12dp"
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_height="60dp"
+        android:textColor="@color/white"
+        android:text="Bienvenido"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="12dp"
+            android:drawableStart="@drawable/ic_ordenes_trabajo"
+            android:paddingLeft="90dp"
+            android:paddingRight="90dp"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:id="@+id/btnOT"
+            android:text="Mis órdenes de trabajo" />
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="12dp"
+            android:drawableStart="@drawable/ic_cerrar_sesion"
+            android:paddingLeft="90dp"
+            android:paddingRight="90dp"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:text="Cerrar sesión" />
+
+
+
+
+
+</LinearLayout>
