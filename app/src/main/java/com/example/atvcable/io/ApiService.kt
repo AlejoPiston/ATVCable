@@ -33,6 +33,12 @@ interface ApiService {
     @GET( value = "auth/ordenes_t")
     fun getOrdenes(@Header(value = "Authorization") authHeader: String): Call<ArrayList<OrdenTrabajo>>
 
+    @GET( value = "auth/ordenes_tc")
+    fun getOrdenesC(@Header(value = "Authorization") authHeader: String): Call<ArrayList<OrdenTrabajo>>
+
+    @GET( value = "auth/ordenes_tp")
+    fun getOrdenesP(@Header(value = "Authorization") authHeader: String): Call<ArrayList<OrdenTrabajo>>
+
     companion object Factory {
         private const val BASE_URL = "http://104.131.36.170/api/"
 

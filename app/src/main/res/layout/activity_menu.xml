@@ -22,12 +22,32 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="12dp"
+            android:drawableStart="@drawable/ic_ordenes_confirmadas"
+            android:paddingLeft="90dp"
+            android:paddingRight="90dp"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:id="@+id/btnOTC"
+            android:text="Mis órdenes confirmadas" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="12dp"
             android:drawableStart="@drawable/ic_ordenes_trabajo"
             android:paddingLeft="90dp"
             android:paddingRight="90dp"
             style="@style/Widget.AppCompat.Button.Colored"
+            android:id="@+id/btnOTP"
+            android:text="Mis órdenes en progreso" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="12dp"
+            android:drawableStart="@drawable/ic_ordenes_historial"
+            android:paddingLeft="90dp"
+            android:paddingRight="90dp"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:id="@+id/btnOT"
-            android:text="Mis órdenes de trabajo" />
+            android:text="Historial" />
         <Button
             android:id="@+id/btnLogout"
             android:layout_width="match_parent"

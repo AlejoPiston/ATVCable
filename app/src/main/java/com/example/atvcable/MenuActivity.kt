@@ -42,6 +42,14 @@ class MenuActivity : AppCompatActivity() {
             val intent = Intent(this, OrdenTrabajosActivity::class.java)
             startActivity(intent)
         }
+        btnOTC.setOnClickListener {
+            val intent = Intent(this, OrdenTrabajosCActivity::class.java)
+            startActivity(intent)
+        }
+        btnOTP.setOnClickListener {
+            val intent = Intent(this, OrdenTrabajosPActivity::class.java)
+            startActivity(intent)
+        }
 
         btnLogout.setOnClickListener {
             performLogout()
