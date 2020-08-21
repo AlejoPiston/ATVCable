@@ -20,8 +20,7 @@ class OrdenTrabajosCAdapter
         fun bind(ordentrabajo: OrdenTrabajo) = with (itemView) {
             tvIdOT.text = "Órden de Trabajo # ${ordentrabajo.Id}"
             tvDañoOT.text = "Daño ${ordentrabajo.Dano}"
-            tvEstadoOT.text = "Estado ${ordentrabajo.Activa}"
-            tvFechaOT.text = "Fecha # ${ordentrabajo.Fecha}"
+
             tvClienteOT.text = "Cliente ${ordentrabajo.fichaordentrabajo.Nombres}"
 
             ibExpand.setOnClickListener {

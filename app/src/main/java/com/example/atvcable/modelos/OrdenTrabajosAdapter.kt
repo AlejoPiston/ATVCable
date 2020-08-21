@@ -18,11 +18,20 @@ class OrdenTrabajosAdapter
 
 
         fun bind(ordentrabajo: OrdenTrabajo) = with (itemView) {
-            tvIdOT.text = "Órden de Trabajo # ${ordentrabajo.Id}"
-            tvDañoOT.text = "Daño ${ordentrabajo.Dano}"
-            tvEstadoOT.text = "Estado ${ordentrabajo.Activa}"
-            tvFechaOT.text = "Fecha # ${ordentrabajo.Fecha}"
-            tvClienteOT.text = "Cliente ${ordentrabajo.fichaordentrabajo.Nombres}"
+            tvIdOT.text = "Orden de Trabajo ${ordentrabajo.Id}"
+            tvClienteOT.text = "${ordentrabajo.fichaordentrabajo.Nombres} ${ordentrabajo.fichaordentrabajo.Apellidos}"
+            tvDireccionOT.text = "${ordentrabajo.fichaordentrabajo.DireccionDomicilio}"
+            tvTelefonoOT.text = "${ordentrabajo.fichaordentrabajo.TelefonoDomicilio}"
+
+            tvDañoOT.text = "Reparación de ${ordentrabajo.Dano}"
+
+            tvFechaROT.text = "Registrada el ${ordentrabajo.createdAt}"
+            tvEstadoOT.text = "${ordentrabajo.Activa}"
+            if (ordentrabajo.Activa == "cancelada")
+                tvResultadoOT.text = "Cancelada el ${ordentrabajo.updatedAt}"
+            else
+                tvResultadoOT.text = "Con resultado: ${ordentrabajo.Resultado}"
+
 
             ibExpand.setOnClickListener {
                 TransitionManager.beginDelayedTransition(parent as ViewGroup, AutoTransition())

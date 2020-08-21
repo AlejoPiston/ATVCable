@@ -11,6 +11,7 @@ data class OrdenTrabajo(
     val FechaHoraArrivo: String,
     val FechaHoraSalida: String,
     @SerializedName("created_at") val createdAt: String,
+    @SerializedName("updated_at") val updatedAt: String,
     val Activa: String,
 
     val fichaordentrabajo: Ficha

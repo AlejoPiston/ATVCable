@@ -27,20 +27,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:id="@+id/tvDañoOT"
-            tools:text="Daño"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
+            style="@style/Base.TextAppearance.AppCompat.Medium"
             android:id="@+id/tvClienteOT"
             tools:text="Ficha"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:id="@+id/tvFechaOT"
-            tools:text="Fecha"/>
+            android:id="@+id/tvDireccionOT"
+            tools:text="Direccion"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:id="@+id/tvTelefonoOT"
+            tools:text="Telefono"/>
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -50,8 +52,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:id="@+id/tvEstadoOT"
-                tools:text="Estado"/>
+                android:id="@+id/tvDañoOT"
+                tools:text="Daño"/>
             <ImageButton
                 android:id="@+id/ibExpand"
                 android:src="@drawable/ic_expandir"
@@ -74,28 +76,21 @@
             <TextView android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:id="@+id/tvSpecialty"
-                tools:text="Oftalmología"/>
-
-            <TextView android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:id="@+id/tvType"
-                tools:text="Consulta"/>
-
+                style="@style/Base.TextAppearance.AppCompat.Medium"
+                android:id="@+id/tvEstadoOT"
+                tools:text="Estado"/>
             <TextView android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:layout_marginTop="8dp"
-                android:id="@+id/tvCreatedAt"
-                tools:text="Esta se cita registro el día 2018-12-05 con la siguiente descripción:"/>
-
+                android:id="@+id/tvFechaROT"
+                tools:text="Fecha de Registro"/>
             <TextView android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:layout_marginBottom="16dp"
-                android:id="@+id/tvDescription"
-                tools:text="Tengo dolor de cabeza"/>
+                android:id="@+id/tvResultadoOT"
+                tools:text="Resultado"/>
         </LinearLayout>
 
     </LinearLayout>
