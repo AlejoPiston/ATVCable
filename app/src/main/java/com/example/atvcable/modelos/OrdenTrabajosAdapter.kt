@@ -27,10 +27,15 @@ class OrdenTrabajosAdapter
 
             tvFechaROT.text = "Registrada el ${ordentrabajo.createdAt}"
             tvEstadoOT.text = "${ordentrabajo.Activa}"
-            if (ordentrabajo.Activa == "cancelada")
+            if (ordentrabajo.Activa == "cancelada") {
+
+                linearLayoutDetails.setBackgroundColor(resources.getColor(R.color.cancelar))
                 tvResultadoOT.text = "Cancelada el ${ordentrabajo.updatedAt}"
-            else
+            }else{
+                linearLayoutDetails.setBackgroundColor(resources.getColor(R.color.atender))
                 tvResultadoOT.text = "Con resultado: ${ordentrabajo.Resultado}"
+            }
+
 
 
             ibExpand.setOnClickListener {

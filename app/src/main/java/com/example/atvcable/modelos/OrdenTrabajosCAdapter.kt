@@ -7,7 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.atvcable.R
-import kotlinx.android.synthetic.main.item_ordentrabajo.view.*
+import kotlinx.android.synthetic.main.item_ordentrabajoc.view.*
+
 
 class OrdenTrabajosCAdapter
     : RecyclerView.Adapter<OrdenTrabajosCAdapter.ViewHolder>() {
@@ -18,10 +19,13 @@ class OrdenTrabajosCAdapter
 
 
         fun bind(ordentrabajo: OrdenTrabajo) = with (itemView) {
-            tvIdOT.text = "Órden de Trabajo # ${ordentrabajo.Id}"
-            tvDañoOT.text = "Daño ${ordentrabajo.Dano}"
 
-            tvClienteOT.text = "Cliente ${ordentrabajo.fichaordentrabajo.Nombres}"
+            tvIdOTCo.text = "Orden de Trabajo ${ordentrabajo.Id}"
+            tvClienteOTCo.text = "${ordentrabajo.fichaordentrabajo.Nombres} ${ordentrabajo.fichaordentrabajo.Apellidos}"
+            tvDireccionOTCo.text = "${ordentrabajo.fichaordentrabajo.DireccionDomicilio}"
+            tvTelefonoOTCo.text = "${ordentrabajo.fichaordentrabajo.TelefonoDomicilio}"
+
+            tvDañoOTCo.text = "Reparación de ${ordentrabajo.Dano}"
 
             ibExpand.setOnClickListener {
                 TransitionManager.beginDelayedTransition(parent as ViewGroup, AutoTransition())
@@ -41,7 +45,7 @@ class OrdenTrabajosCAdapter
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
             LayoutInflater.from(parent.context).inflate(
-                R.layout.item_ordentrabajo, parent, false)
+                R.layout.item_ordentrabajoc, parent, false)
         )
     }
 
