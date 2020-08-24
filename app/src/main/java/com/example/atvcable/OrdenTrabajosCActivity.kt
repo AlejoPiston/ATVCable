@@ -2,8 +2,10 @@ package com.example.atvcable
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 
 import androidx.recyclerview.widget.LinearLayoutManager
+
 import com.example.atvcable.io.ApiService
 import com.example.atvcable.modelos.OrdenTrabajo
 
@@ -11,8 +13,10 @@ import com.example.atvcable.modelos.OrdenTrabajosCAdapter
 import com.example.atvcable.util.PreferenceHelper
 import com.example.atvcable.util.PreferenceHelper.get
 import com.example.atvcable.util.toast
-import kotlinx.android.synthetic.main.activity_orden_trabajos.*
+
 import kotlinx.android.synthetic.main.activity_orden_trabajos_c.*
+import kotlinx.android.synthetic.main.item_ordentrabajoc.*
+
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -55,11 +59,12 @@ class OrdenTrabajosCActivity : AppCompatActivity() {
                     response.body() ?.let {
                         ordenestrabajoAdapter.ordenestrabajo = it
                         ordenestrabajoAdapter.notifyDataSetChanged()
-                    }
 
+                    }
                 }
             }
 
         })
     }
+
 }

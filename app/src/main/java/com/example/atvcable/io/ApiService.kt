@@ -1,17 +1,13 @@
 package com.example.atvcable.io
 
 import com.example.atvcable.io.response.LoginResponse
-import com.example.atvcable.modelos.Ficha
 import com.example.atvcable.modelos.OrdenTrabajo
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
-import retrofit2.http.GET
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.Header
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 
 interface ApiService {
@@ -20,6 +16,15 @@ interface ApiService {
     fun postToken(
         @Header("Authorization") authHeader: String,
         @Query("device_token") token: String
+    ): Call<Void>
+
+    @POST("auth/ordenes_tcon")
+    @Headers("Accept: application/json")
+    fun postOrdenTrabajo(
+        @Header("Authorization") authHeader: String,
+        @Query("Id") Id: String,
+        @Query("Activa") Activa: String
+        //@Query("address") address: String
     ): Call<Void>
 
     @POST( value = "auth/login")

@@ -3,7 +3,7 @@ package com.example.atvcable
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+
 import kotlinx.android.synthetic.main.activity_main.*
 import com.example.atvcable.util.PreferenceHelper.get
 import com.example.atvcable.util.PreferenceHelper.set
@@ -12,7 +12,6 @@ import com.example.atvcable.io.response.LoginResponse
 import com.example.atvcable.util.PreferenceHelper
 import com.example.atvcable.util.toast
 import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.iid.FirebaseInstanceId
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -25,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     private val snackBar by lazy{
         Snackbar.make(mainLayout,"Presione una vez más para salir", Snackbar.LENGTH_SHORT)
     }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
