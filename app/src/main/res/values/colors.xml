@@ -9,6 +9,8 @@
     <color name="cancelar">#f5365c</color>
     <color name="atender">#2dce89</color>
     <color name="finalizar">#172b4d</color>
+    <color name="ubicacion">#fb6340</color>
+
 
 
 </resources>
