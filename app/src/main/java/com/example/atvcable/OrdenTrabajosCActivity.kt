@@ -150,7 +150,7 @@ class OrdenTrabajosCActivity : AppCompatActivity() {
     }
 
 
-    protected fun startLocationUpdates() {
+    fun startLocationUpdates() {
 
         // Create the location request to start receiving updates
 
@@ -205,8 +205,10 @@ class OrdenTrabajosCActivity : AppCompatActivity() {
 
     }
 
-    private fun stoplocationUpdates() {
+    fun stoplocationUpdates() {
         mFusedLocationProviderClient!!.removeLocationUpdates(mLocationCallback)
+        txtTime.text ="Ubicación a enviar"
+
     }
 
 

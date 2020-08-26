@@ -3,19 +3,24 @@ package com.example.atvcable.modelos
 
 import android.content.Context
 import android.content.Intent
+import android.location.Location
 import android.transition.AutoTransition
 import android.transition.TransitionManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.atvcable.MenuActivity
+import com.example.atvcable.OrdenTrabajosCActivity
 import com.example.atvcable.R
 import com.example.atvcable.io.ApiService
 import com.example.atvcable.util.PreferenceHelper
 import com.example.atvcable.util.PreferenceHelper.get
+import kotlinx.android.synthetic.main.activity_orden_trabajos_c.view.*
 import kotlinx.android.synthetic.main.item_ordentrabajoc.view.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -25,6 +30,7 @@ import retrofit2.Response
 class OrdenTrabajosCAdapter
     : RecyclerView.Adapter<OrdenTrabajosCAdapter.ViewHolder>() {
     var ordenestrabajo = ArrayList<OrdenTrabajo>()
+
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
@@ -36,6 +42,7 @@ class OrdenTrabajosCAdapter
          }
 
         fun bind(ordentrabajo: OrdenTrabajo) = with (itemView) {
+
             tvIdOTCotexto.text ="Orden de Trabajo"
             tvIdOTCo.text = "${ordentrabajo.Id}"
             tvClienteOTCo.text = "${ordentrabajo.fichaordentrabajo.Nombres} ${ordentrabajo.fichaordentrabajo.Apellidos}"
@@ -49,18 +56,26 @@ class OrdenTrabajosCAdapter
             val authHeader = "Bearer $jwt"
 
             ibExpand.setOnClickListener {
+                var ordenTrabajosCActivity: OrdenTrabajosCActivity = context  as OrdenTrabajosCActivity
+
                 TransitionManager.beginDelayedTransition(parent as ViewGroup, AutoTransition())
 
                 if (linearLayoutDetails.visibility == View.VISIBLE) {
+                    ordenTrabajosCActivity.startLocationUpdates()
+
                     linearLayoutDetails.visibility = View.GONE
                     ibExpand.setImageResource(R.drawable.ic_expandir)
 
 
                 } else {
+                    ordenTrabajosCActivity.stoplocationUpdates()
                     linearLayoutDetails.visibility = View.VISIBLE
                     ibExpand.setImageResource(R.drawable.ic_minimizar)
                     btnAtenderOTCo.setOnClickListener {
-                        val call = apiService.postOrdenTrabajo(authHeader, Id, Activa) //(authHeader, Activa, phone, address)
+
+                        var Latitud = ordenTrabajosCActivity.mLastLocation.latitude.toString()
+                        val Longitud = ordenTrabajosCActivity.mLastLocation.longitude.toString()
+                        val call = apiService.postOrdenTrabajo(authHeader, Id, Activa, Latitud, Longitud) //(authHeader, Activa, phone, address)
                         call.enqueue(object: Callback<Void> {
                             override fun onFailure(call: Call<Void>, t: Throwable) {
                                 Toast.makeText(itemView.context, t.localizedMessage, Toast.LENGTH_SHORT).show()

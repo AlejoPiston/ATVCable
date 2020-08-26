@@ -23,7 +23,10 @@ interface ApiService {
     fun postOrdenTrabajo(
         @Header("Authorization") authHeader: String,
         @Query("Id") Id: String,
-        @Query("Activa") Activa: String
+        @Query("Activa") Activa: String,
+        @Query("Latitud") Latitud: String,
+        @Query("Longitud") Longitud: String
+
         //@Query("address") address: String
     ): Call<Void>
 
