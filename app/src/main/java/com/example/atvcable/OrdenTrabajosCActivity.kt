@@ -60,8 +60,8 @@ class OrdenTrabajosCActivity : AppCompatActivity() {
     private val preferences by lazy {
         PreferenceHelper.defaultPrefs(this)
     }
-
     private val ordenestrabajoAdapter = OrdenTrabajosCAdapter()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_orden_trabajos_c)
@@ -132,9 +132,9 @@ class OrdenTrabajosCActivity : AppCompatActivity() {
     private fun buildAlertMessageNoGps() {
 
         val builder = AlertDialog.Builder(this)
-        builder.setMessage("Your GPS seems to be disabled, do you want to enable it?")
+        builder.setMessage("Tu GPS parece estar desactivado, ¿quieres activarlo?")
             .setCancelable(false)
-            .setPositiveButton("Yes") { dialog, id ->
+            .setPositiveButton("Si") { dialog, id ->
                 startActivityForResult(
                     Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
                     , 11)
@@ -145,10 +145,7 @@ class OrdenTrabajosCActivity : AppCompatActivity() {
             }
         val alert: AlertDialog = builder.create()
         alert.show()
-
-
     }
-
 
     fun startLocationUpdates() {
 
@@ -204,13 +201,11 @@ class OrdenTrabajosCActivity : AppCompatActivity() {
         txtDireccion.text = address
 
     }
-
     fun stoplocationUpdates() {
         mFusedLocationProviderClient!!.removeLocationUpdates(mLocationCallback)
         txtTime.text ="Ubicación a enviar"
 
     }
-
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         if (requestCode == REQUEST_PERMISSION_LOCATION) {
@@ -219,7 +214,7 @@ class OrdenTrabajosCActivity : AppCompatActivity() {
                 //btnStartupdate.isEnabled = false
                 //btnStopUpdates.isEnabled = true
             } else {
-                Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Permiso denegado", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -240,9 +235,4 @@ class OrdenTrabajosCActivity : AppCompatActivity() {
             true
         }
     }
-
-
-
-
-
 }

@@ -6,10 +6,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/bg_gradiente"
-    tools:context=".OrdenTrabajosPActivity">
+    tools:context=".OrdenTrabajosCaActivity">
     <TextView
         android:layout_marginTop="12dp"
-        android:text="Órdenes de trabajo en progreso"
+        android:text="Órdenes de trabajo en camino"
         android:textColor="@color/white"
         style="@style/Base.TextAppearance.AppCompat.Medium"
         android:gravity="center_horizontal"
@@ -31,16 +31,16 @@
                 android:layout_weight="1"
                 android:textColor="@color/white"
                 android:background="@color/ubicacion"
-                android:id="@+id/txtLatp"
+                android:id="@+id/txtLatca"
                 android:layout_height="wrap_content"
-                tools:text="Latitudp"/>
+                tools:text="Latitudca"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:textColor="@color/white"
                 android:background="@color/ubicacion"
                 android:layout_height="wrap_content"
-                android:id="@+id/txtLongp"
-                tools:text="Longitudp"/>
+                android:id="@+id/txtLongca"
+                tools:text="Longitudca"/>
         </LinearLayout>
 
         <TextView
@@ -52,22 +52,22 @@
             android:drawableLeft="@drawable/ic_ubicacion"
             android:paddingHorizontal="6dp"
             style="@style/Base.TextAppearance.AppCompat.Medium"
-            android:id="@+id/txtDireccionp"
-            tools:text="Direcciónp"/>
+            android:id="@+id/txtDireccionca"
+            tools:text="Direcciónca"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:id="@+id/txtTimep"
+            android:id="@+id/txtTimeca"
             android:textColor="@color/white"
             android:background="@color/ubicacion"
-            tools:text="Tiempop"/>
+            tools:text="Tiempoca"/>
     </LinearLayout>
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerviewOrdenTrabajosP"
-        tools:listitem="@layout/item_ordentrabajop"
+        android:id="@+id/recyclerviewOrdenTrabajosCa"
+        tools:listitem="@layout/item_ordentrabajoca"
         android:padding="6dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">

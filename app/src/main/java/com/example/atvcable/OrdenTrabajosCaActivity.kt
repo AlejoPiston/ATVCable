@@ -1,6 +1,4 @@
 package com.example.atvcable
-
-
 import android.Manifest
 import android.content.Context
 import android.content.Intent
@@ -13,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Looper
 import android.provider.Settings
-import android.widget.Button
+
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -23,15 +21,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.example.atvcable.io.ApiService
 import com.example.atvcable.modelos.OrdenTrabajo
-import com.example.atvcable.modelos.OrdenTrabajosPAdapter
 
 
+import com.example.atvcable.modelos.OrdenTrabajosCaAdapter
 import com.example.atvcable.util.PreferenceHelper
 import com.example.atvcable.util.PreferenceHelper.get
 import com.example.atvcable.util.toast
 import com.google.android.gms.location.*
-import kotlinx.android.synthetic.main.activity_orden_trabajos_p.*
 
+import kotlinx.android.synthetic.main.activity_orden_trabajos_ca.*
 
 import retrofit2.Call
 import retrofit2.Callback
@@ -41,7 +39,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 
-class OrdenTrabajosPActivity : AppCompatActivity() {
+class OrdenTrabajosCaActivity : AppCompatActivity() {
     private var mFusedLocationProviderClient: FusedLocationProviderClient? = null
     private val INTERVAL: Long = 2000
     private val FASTEST_INTERVAL: Long = 1000
@@ -50,10 +48,10 @@ class OrdenTrabajosPActivity : AppCompatActivity() {
     private val REQUEST_PERMISSION_LOCATION = 10
 
     //lateinit var btnStopUpdates: Button
-    lateinit var txtLatp: TextView
-    lateinit var txtLongp: TextView
-    lateinit var txtTimep: TextView
-    lateinit var txtDireccionp: TextView
+    lateinit var txtLatca: TextView
+    lateinit var txtLongca: TextView
+    lateinit var txtTimeca: TextView
+    lateinit var txtDireccionca: TextView
 
 
     private val apiService: ApiService by lazy {
@@ -62,20 +60,20 @@ class OrdenTrabajosPActivity : AppCompatActivity() {
     private val preferences by lazy {
         PreferenceHelper.defaultPrefs(this)
     }
-    private val ordenestrabajoAdapter = OrdenTrabajosPAdapter()
+    private val ordenestrabajoAdapter = OrdenTrabajosCaAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_orden_trabajos_p)
+        setContentView(R.layout.activity_orden_trabajos_ca)
 
         mLocationRequest = LocationRequest()
 
         //btnStartupdate = findViewById(R.id.btn_start_upds)
 
-        txtLatp = findViewById(R.id.txtLatp);
-        txtLongp = findViewById(R.id.txtLongp);
-        txtTimep = findViewById(R.id.txtTimep);
-        txtDireccionp = findViewById(R.id.txtDireccionp);
+        txtLatca = findViewById(R.id.txtLatca);
+        txtLongca = findViewById(R.id.txtLongca);
+        txtTimeca = findViewById(R.id.txtTimeca);
+        txtDireccionca = findViewById(R.id.txtDireccionca);
 
 
         val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
@@ -102,14 +100,14 @@ class OrdenTrabajosPActivity : AppCompatActivity() {
 
         loadOrdenesTrabajo()
 
-        recyclerviewOrdenTrabajosP.layoutManager = LinearLayoutManager(this)
-        recyclerviewOrdenTrabajosP.adapter = ordenestrabajoAdapter
+        recyclerviewOrdenTrabajosCa.layoutManager = LinearLayoutManager(this)
+        recyclerviewOrdenTrabajosCa.adapter = ordenestrabajoAdapter
 
     }
 
     private fun loadOrdenesTrabajo(){
         val jwt = preferences["jwt", ""]
-        val call = apiService.getOrdenesP("Bearer $jwt")
+        val call = apiService.getOrdenesCa("Bearer $jwt")
         call.enqueue(object: Callback<ArrayList<OrdenTrabajo>> {
             override fun onFailure(call: Call<ArrayList<OrdenTrabajo>>, t: Throwable) {
                 toast(t.localizedMessage)
@@ -195,17 +193,17 @@ class OrdenTrabajosPActivity : AppCompatActivity() {
         mLastLocation = location
         val date: Date = Calendar.getInstance().time
         val sdf = SimpleDateFormat("hh:mm:ss a")
-        txtTimep.text = "Hora: " + sdf.format(date)
-        txtLatp.text = "Lat: " + mLastLocation.latitude
-        txtLongp.text = "Long: " + mLastLocation.longitude
+        txtTimeca.text = "Hora: " + sdf.format(date)
+        txtLatca.text = "Lat: " + mLastLocation.latitude
+        txtLongca.text = "Long: " + mLastLocation.longitude
         // You can now create a LatLng Object for use with maps
         val address = getDireccion(mLastLocation.latitude, mLastLocation.longitude)
-        txtDireccionp.text = address
+        txtDireccionca.text = address
 
     }
     fun stoplocationUpdates() {
         mFusedLocationProviderClient!!.removeLocationUpdates(mLocationCallback)
-        txtTimep.text ="Ubicación a enviar"
+        txtTimeca.text ="Ubicación a enviar"
 
     }
 

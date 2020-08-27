@@ -26,13 +26,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_weight="1"
-                android:id="@+id/tvIdOTCotextop"
+                android:id="@+id/tvIdOTCotextoca"
                 android:layout_height="wrap_content"
-                tools:text="Orden de trabajo p"/>
+                tools:text="Orden de trabajo"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/tvIdOTP"
+                android:id="@+id/tvIdOTCa"
                 tools:text="1"/>
         </LinearLayout>
 
@@ -41,21 +41,21 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             style="@style/Base.TextAppearance.AppCompat.Medium"
-            android:id="@+id/tvClienteOTP"
-            tools:text="Ficha P"/>
+            android:id="@+id/tvClienteOTCa"
+            tools:text="Ficha Ca"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:id="@+id/tvDireccionOTP"
-            tools:text="Direccion P"/>
+            android:id="@+id/tvDireccionOTCa"
+            tools:text="Direccion Ca"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:id="@+id/tvTelefonoOTP"
-            tools:text="Telefono P"/>
+            android:id="@+id/tvTelefonoOTCa"
+            tools:text="Telefono Ca"/>
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -65,10 +65,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:id="@+id/tvDañoOTP"
-                tools:text="Daño P"/>
+                android:id="@+id/tvDañoOTCa"
+                tools:text="Daño Ca"/>
             <ImageButton
-                android:id="@+id/ibExpandP"
+                android:id="@+id/ibExpandca"
                 android:src="@drawable/ic_expandir"
                 tools:src="@drawable/ic_minimizar"
                 android:background="@color/white"
@@ -96,7 +96,7 @@
                 android:drawableStart="@drawable/ic_cancelar"
                 android:background="@color/cancelar"
                 android:textColor="@color/white"
-                android:id="@+id/btnCancelarOTP"
+                android:id="@+id/btnCancelarOTCa"
                 android:text="Cancelar" />
             <Button
                 android:layout_width="wrap_content"
@@ -105,11 +105,11 @@
                 android:paddingRight="20dp"
                 android:paddingLeft="20dp"
                 android:layout_marginHorizontal="10dp"
-                android:drawableStart="@drawable/ic_ordenes_historial"
-                android:background="@color/finalizar"
+                android:drawableStart="@drawable/ic_enprogreso"
+                android:background="@color/solucionar"
                 android:textColor="@color/white"
-                android:id="@+id/btnFinalizarOTP"
-                android:text="Finalizar" />
+                android:id="@+id/btnSolucionarOTCa"
+                android:text="Solucionar" />
         </LinearLayout>
 
     </LinearLayout>

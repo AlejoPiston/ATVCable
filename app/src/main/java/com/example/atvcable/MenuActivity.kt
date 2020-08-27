@@ -46,6 +46,10 @@ class MenuActivity : AppCompatActivity() {
             val intent = Intent(this, OrdenTrabajosCActivity::class.java)
             startActivity(intent)
         }
+        btnOTCa.setOnClickListener {
+            val intent = Intent(this, OrdenTrabajosCaActivity::class.java)
+            startActivity(intent)
+        }
         btnOTP.setOnClickListener {
             val intent = Intent(this, OrdenTrabajosPActivity::class.java)
             startActivity(intent)

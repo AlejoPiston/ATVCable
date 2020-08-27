@@ -15,20 +15,20 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.atvcable.MenuActivity
-import com.example.atvcable.OrdenTrabajosCActivity
+import com.example.atvcable.OrdenTrabajosCaActivity
 import com.example.atvcable.R
 import com.example.atvcable.io.ApiService
 import com.example.atvcable.util.PreferenceHelper
 import com.example.atvcable.util.PreferenceHelper.get
 
-import kotlinx.android.synthetic.main.item_ordentrabajoc.view.*
+import kotlinx.android.synthetic.main.item_ordentrabajoca.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 
-class OrdenTrabajosCAdapter
-    : RecyclerView.Adapter<OrdenTrabajosCAdapter.ViewHolder>() {
+class OrdenTrabajosCaAdapter
+    : RecyclerView.Adapter<OrdenTrabajosCaAdapter.ViewHolder>() {
     var ordenestrabajo = ArrayList<OrdenTrabajo>()
 
 
@@ -43,38 +43,38 @@ class OrdenTrabajosCAdapter
 
         fun bind(ordentrabajo: OrdenTrabajo) = with (itemView) {
 
-            tvIdOTCotexto.text ="Orden de Trabajo"
-            tvIdOTCo.text = "${ordentrabajo.Id}"
-            tvClienteOTCo.text = "${ordentrabajo.fichaordentrabajo.Nombres} ${ordentrabajo.fichaordentrabajo.Apellidos}"
-            tvDireccionOTCo.text = "${ordentrabajo.fichaordentrabajo.DireccionDomicilio}"
-            tvTelefonoOTCo.text = "${ordentrabajo.fichaordentrabajo.TelefonoDomicilio}"
+            tvIdOTCotextoca.text ="Orden de Trabajo"
+            tvIdOTCa.text = "${ordentrabajo.Id}"
+            tvClienteOTCa.text = "${ordentrabajo.fichaordentrabajo.Nombres} ${ordentrabajo.fichaordentrabajo.Apellidos}"
+            tvDireccionOTCa.text = "${ordentrabajo.fichaordentrabajo.DireccionDomicilio}"
+            tvTelefonoOTCa.text = "${ordentrabajo.fichaordentrabajo.TelefonoDomicilio}"
 
-            tvDañoOTCo.text = "Reparación de ${ordentrabajo.Dano}"
-            val Id = tvIdOTCo.text.toString()
-            val Activa = "en camino"
+            tvDañoOTCa.text = "Reparación de ${ordentrabajo.Dano}"
+            val Id = tvIdOTCa.text.toString()
+            val Activa = "en progreso"
             val jwt = preferences["jwt", ""]
             val authHeader = "Bearer $jwt"
 
-            ibExpand.setOnClickListener {
-                var ordenTrabajosCActivity: OrdenTrabajosCActivity = context  as OrdenTrabajosCActivity
+            ibExpandca.setOnClickListener {
+                var ordenTrabajosCaActivity: OrdenTrabajosCaActivity = context  as OrdenTrabajosCaActivity
 
                 TransitionManager.beginDelayedTransition(parent as ViewGroup, AutoTransition())
 
                 if (linearLayoutDetails.visibility == View.VISIBLE) {
-                    ordenTrabajosCActivity.startLocationUpdates()
+                    ordenTrabajosCaActivity.startLocationUpdates()
 
                     linearLayoutDetails.visibility = View.GONE
-                    ibExpand.setImageResource(R.drawable.ic_expandir)
+                    ibExpandca.setImageResource(R.drawable.ic_expandir)
 
 
                 } else {
-                    ordenTrabajosCActivity.stoplocationUpdates()
+                    ordenTrabajosCaActivity.stoplocationUpdates()
                     linearLayoutDetails.visibility = View.VISIBLE
-                    ibExpand.setImageResource(R.drawable.ic_minimizar)
-                    btnAtenderOTCo.setOnClickListener {
+                    ibExpandca.setImageResource(R.drawable.ic_minimizar)
+                    btnSolucionarOTCa.setOnClickListener {
 
-                        var Latitud = ordenTrabajosCActivity.mLastLocation.latitude.toString()
-                        val Longitud = ordenTrabajosCActivity.mLastLocation.longitude.toString()
+                        var Latitud = ordenTrabajosCaActivity.mLastLocation.latitude.toString()
+                        val Longitud = ordenTrabajosCaActivity.mLastLocation.longitude.toString()
                         val call = apiService.postOrdenTrabajo(authHeader, Id, Activa, Latitud, Longitud) //(authHeader, Activa, phone, address)
                         call.enqueue(object: Callback<Void> {
                             override fun onFailure(call: Call<Void>, t: Throwable) {
@@ -83,7 +83,7 @@ class OrdenTrabajosCAdapter
 
                             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                                 if (response.isSuccessful) {
-                                    Toast.makeText(itemView.context, "La orden de trabajo está en camino", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(itemView.context, "La orden de trabajo está en progreso", Toast.LENGTH_SHORT).show()
                                     regresarMenu()
                                 }
                             }
@@ -106,7 +106,7 @@ class OrdenTrabajosCAdapter
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
             LayoutInflater.from(parent.context).inflate(
-                R.layout.item_ordentrabajoc, parent, false)
+                R.layout.item_ordentrabajoca, parent, false)
         )
     }
 

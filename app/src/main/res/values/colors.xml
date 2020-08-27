@@ -8,6 +8,7 @@
     <color name="whiteTransparent">#96ffffff</color>
     <color name="cancelar">#f5365c</color>
     <color name="atender">#2dce89</color>
+    <color name="solucionar">#11cdef</color>
     <color name="finalizar">#172b4d</color>
     <color name="ubicacion">#fb6340</color>
 

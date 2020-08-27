@@ -28,11 +28,21 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:id="@+id/btnOTC"
             android:text="Mis órdenes confirmadas" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="12dp"
+        android:drawableStart="@drawable/ic_ordenes_trabajo"
+        android:paddingLeft="90dp"
+        android:paddingRight="90dp"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:id="@+id/btnOTCa"
+        android:text="Mis órdenes en camino" />
         <Button
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="12dp"
-            android:drawableStart="@drawable/ic_ordenes_trabajo"
+            android:drawableStart="@drawable/ic_enprogreso"
             android:paddingLeft="90dp"
             android:paddingRight="90dp"
             style="@style/Widget.AppCompat.Button.Colored"

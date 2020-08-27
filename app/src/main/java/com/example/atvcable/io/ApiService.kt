@@ -44,6 +44,9 @@ interface ApiService {
     @GET( value = "auth/ordenes_tc")
     fun getOrdenesC(@Header(value = "Authorization") authHeader: String): Call<ArrayList<OrdenTrabajo>>
 
+    @GET( value = "auth/ordenes_tca")
+    fun getOrdenesCa(@Header(value = "Authorization") authHeader: String): Call<ArrayList<OrdenTrabajo>>
+
     @GET( value = "auth/ordenes_tp")
     fun getOrdenesP(@Header(value = "Authorization") authHeader: String): Call<ArrayList<OrdenTrabajo>>
 
