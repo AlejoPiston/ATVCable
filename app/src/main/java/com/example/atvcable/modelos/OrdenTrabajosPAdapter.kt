@@ -1,31 +1,21 @@
 package com.example.atvcable.modelos
 
-import android.content.Context
-import android.content.Intent
-import android.location.Location
+import android.os.Bundle
 import android.transition.AutoTransition
 import android.transition.TransitionManager
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.atvcable.MenuActivity
+import com.example.atvcable.FragmentFinalizar
 import com.example.atvcable.OrdenTrabajosPActivity
-
 import com.example.atvcable.R
-import com.example.atvcable.io.ApiService
 import com.example.atvcable.util.PreferenceHelper
 import com.example.atvcable.util.PreferenceHelper.get
+import kotlinx.android.synthetic.main.fragment_ot_finalizar.view.*
 import kotlinx.android.synthetic.main.item_ordentrabajop.view.*
-
-
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import kotlinx.android.synthetic.main.item_ordentrabajop.view.linearLayoutDetails
 
 
 class OrdenTrabajosPAdapter
@@ -35,9 +25,7 @@ class OrdenTrabajosPAdapter
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
-        private val apiService: ApiService by lazy {
-            ApiService.create()
-        }
+
         private val preferences by lazy {
             PreferenceHelper.defaultPrefs(this.itemView.context)
         }
@@ -51,6 +39,7 @@ class OrdenTrabajosPAdapter
             tvTelefonoOTP.text = "${ordentrabajo.fichaordentrabajo.TelefonoDomicilio}"
 
             tvDañoOTP.text = "Reparación de ${ordentrabajo.Dano}"
+
             val Id = tvIdOTP.text.toString()
             val Activa = "atendida"
             val jwt = preferences["jwt", ""]
@@ -73,34 +62,23 @@ class OrdenTrabajosPAdapter
                     linearLayoutDetails.visibility = View.VISIBLE
                     ibExpandP.setImageResource(R.drawable.ic_minimizar)
                     btnFinalizarOTP.setOnClickListener {
+                        // Obtienes el texto
+                        val texto = ordentrabajo.Id.toString()
+                        // Creamos un nuevo Bundle
+                        val args = Bundle()
+                        // Colocamos el String
+                        args.putString("idot", texto)
+                        // Supongamos que tu Fragment se llama TestFragment. Colocamos este nuevo Bundle como argumento en el fragmento.
+                        ordenTrabajosPActivity.botonFragmentFinalizar.arguments = args
 
-                        var Latitud = ordenTrabajosPActivity.mLastLocation.latitude.toString()
-                        val Longitud = ordenTrabajosPActivity.mLastLocation.longitude.toString()
-                        val call = apiService.postOrdenTrabajo(authHeader, Id, Activa, Latitud, Longitud) //(authHeader, Activa, phone, address)
-                        call.enqueue(object: Callback<Void> {
-                            override fun onFailure(call: Call<Void>, t: Throwable) {
-                                Toast.makeText(itemView.context, t.localizedMessage, Toast.LENGTH_SHORT).show()
-                            }
-
-                            override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                                if (response.isSuccessful) {
-                                    Toast.makeText(itemView.context, "La orden de trabajo fue atendida con éxito", Toast.LENGTH_SHORT).show()
-                                    regresarMenu()
-                                }
-                            }
-                        })
+                        ordenTrabajosPActivity.botonFragmentFinalizar.show(ordenTrabajosPActivity.supportFragmentManager, "Boton fragment finalizar")
 
 
                     }
                 }
             }
         }
-        private fun regresarMenu(){
-            val context: Context
-            context = itemView.context
-            val intent = Intent(context, MenuActivity::class.java)
-            context.startActivity(intent)
-        }
+
     }
 
 

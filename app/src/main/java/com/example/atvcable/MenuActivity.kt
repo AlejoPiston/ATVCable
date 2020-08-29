@@ -58,6 +58,7 @@ class MenuActivity : AppCompatActivity() {
         btnLogout.setOnClickListener {
             performLogout()
         }
+
     }
 
     private fun performLogout(){

@@ -3,16 +3,12 @@ package com.example.atvcable.modelos
 
 import android.content.Context
 import android.content.Intent
-import android.location.Location
 import android.transition.AutoTransition
 import android.transition.TransitionManager
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.atvcable.MenuActivity
 import com.example.atvcable.OrdenTrabajosCActivity
@@ -75,7 +71,7 @@ class OrdenTrabajosCAdapter
 
                         var Latitud = ordenTrabajosCActivity.mLastLocation.latitude.toString()
                         val Longitud = ordenTrabajosCActivity.mLastLocation.longitude.toString()
-                        val call = apiService.postOrdenTrabajo(authHeader, Id, Activa, Latitud, Longitud) //(authHeader, Activa, phone, address)
+                        val call = apiService.postOrdenTrabajo(authHeader, Id, Activa, Latitud, Longitud, Resultado = "") //(authHeader, Activa, phone, address)
                         call.enqueue(object: Callback<Void> {
                             override fun onFailure(call: Call<Void>, t: Throwable) {
                                 Toast.makeText(itemView.context, t.localizedMessage, Toast.LENGTH_SHORT).show()

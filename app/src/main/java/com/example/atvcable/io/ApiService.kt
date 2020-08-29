@@ -25,7 +25,8 @@ interface ApiService {
         @Query("Id") Id: String,
         @Query("Activa") Activa: String,
         @Query("Latitud") Latitud: String,
-        @Query("Longitud") Longitud: String
+        @Query("Longitud") Longitud: String,
+        @Query("Resultado") Resultado: String
 
         //@Query("address") address: String
     ): Call<Void>
