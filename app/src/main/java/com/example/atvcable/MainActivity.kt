@@ -12,6 +12,7 @@ import com.example.atvcable.io.response.LoginResponse
 import com.example.atvcable.util.PreferenceHelper
 import com.example.atvcable.util.toast
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.activity_menu.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -64,7 +65,7 @@ class MainActivity : AppCompatActivity() {
                     }
                     if (loginResponse.success) {
                         createSessionPreference(loginResponse.jwt)
-                        toast("Bienvenido ${loginResponse.user.name}")
+                        toast("Bienvenido ${loginResponse.user.name} ${loginResponse.user.Apellidos}")
                         goToMenuActivity(true)
                     } else{
                         toast("Las credenciales son incorrectas")
