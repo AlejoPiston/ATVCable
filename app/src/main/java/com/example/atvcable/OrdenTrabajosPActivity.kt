@@ -82,7 +82,10 @@ class OrdenTrabajosPActivity : AppCompatActivity() {
         if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
             buildAlertMessageNoGps()
         }
-        startLocationUpdates()
+
+        if (checkPermissionForLocation(this)) {
+            startLocationUpdates()
+        }
 
         /*btnStartupdate.setOnClickListener {
             if (checkPermissionForLocation(this)) {

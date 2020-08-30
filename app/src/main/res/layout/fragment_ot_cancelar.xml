@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_gradiente">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginTop="12dp"
+            android:text="Cancelar orden de trabajo"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            style="@style/Base.TextAppearance.AppCompat.Medium"
+            android:gravity="left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tvIdOTFragmentCancelar"
+            android:layout_marginTop="12dp"
+            android:text="#"
+            android:textColor="@color/white"
+            style="@style/Base.TextAppearance.AppCompat.Medium"
+            android:gravity="right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@color/white"
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            style="@style/Base.TextAppearance.AppCompat.Medium"
+            android:text="Ingrese el motivo"/>
+        <EditText
+            android:id="@+id/etOTJustificacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:paddingVertical="30dp"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"/>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutDetails"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingRight="20dp"
+                android:paddingLeft="20dp"
+                android:layout_marginHorizontal="10dp"
+                android:drawableStart="@drawable/ic_cancelar"
+                android:background="@color/cancelar"
+                android:textColor="@color/white"
+                android:id="@+id/btnCancelarOT2"
+                android:text="Cancelar" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

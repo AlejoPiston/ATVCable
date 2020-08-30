@@ -31,6 +31,19 @@ interface ApiService {
         //@Query("address") address: String
     ): Call<Void>
 
+    @POST("auth/ordenes_tcan")
+    @Headers("Accept: application/json")
+    fun postOrdenTrabajoCan(
+        @Header("Authorization") authHeader: String,
+        @Query("Id") Id: String,
+        @Query("Activa") Activa: String,
+        @Query("Latitud") Latitud: String,
+        @Query("Longitud") Longitud: String,
+        @Query("Justificacion") Justificacion: String
+
+        //@Query("address") address: String
+    ): Call<Void>
+
     @POST( value = "auth/login")
     fun postLogin(@Query(value = "email") email: String, @Query(value = "password") password: String):
             Call<LoginResponse>

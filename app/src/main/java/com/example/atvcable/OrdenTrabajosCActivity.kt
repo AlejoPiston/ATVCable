@@ -60,7 +60,7 @@ class OrdenTrabajosCActivity : AppCompatActivity() {
         PreferenceHelper.defaultPrefs(this)
     }
     private val ordenestrabajoAdapter = OrdenTrabajosCAdapter()
-
+    val botonFragmentCancelarOTCo = FragmentCancelarCo()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_orden_trabajos_c)
@@ -79,7 +79,11 @@ class OrdenTrabajosCActivity : AppCompatActivity() {
         if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
             buildAlertMessageNoGps()
         }
-        startLocationUpdates()
+
+        if (checkPermissionForLocation(this)) {
+            startLocationUpdates()
+
+        }
 
         /*btnStartupdate.setOnClickListener {
             if (checkPermissionForLocation(this)) {

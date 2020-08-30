@@ -3,6 +3,7 @@ package com.example.atvcable.modelos
 
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import android.transition.AutoTransition
 import android.transition.TransitionManager
 import android.view.LayoutInflater
@@ -18,6 +19,8 @@ import com.example.atvcable.util.PreferenceHelper
 import com.example.atvcable.util.PreferenceHelper.get
 
 import kotlinx.android.synthetic.main.item_ordentrabajoc.view.*
+import kotlinx.android.synthetic.main.item_ordentrabajoc.view.linearLayoutDetails
+import kotlinx.android.synthetic.main.item_ordentrabajop.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -84,6 +87,20 @@ class OrdenTrabajosCAdapter
                                 }
                             }
                         })
+
+
+                    }
+                    btnCancelarOTCo.setOnClickListener {
+                        // Obtienes el texto
+                        val texto = ordentrabajo.Id.toString()
+                        // Creamos un nuevo Bundle
+                        val args = Bundle()
+                        // Colocamos el String
+                        args.putString("idot", texto)
+                        // Supongamos que tu Fragment se llama TestFragment. Colocamos este nuevo Bundle como argumento en el fragmento.
+                        ordenTrabajosCActivity.botonFragmentCancelarOTCo.arguments = args
+
+                        ordenTrabajosCActivity.botonFragmentCancelarOTCo.show(ordenTrabajosCActivity.supportFragmentManager, "Boton fragment cancelarOTco")
 
 
                     }
