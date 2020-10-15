@@ -61,14 +61,6 @@
             style="@style/Widget.AppCompat.Button.Colored"
             android:text="Ingresar" />
 
-        <TextView
-            android:textColor="@color/white"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="18dp"
-            android:gravity="center_horizontal"
-            android:text="¿Aún no te has registrado?" />
 
     </LinearLayout>
 

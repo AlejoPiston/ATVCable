@@ -17,10 +17,7 @@ import com.example.atvcable.R
 import com.example.atvcable.io.ApiService
 import com.example.atvcable.util.PreferenceHelper
 import com.example.atvcable.util.PreferenceHelper.get
-import kotlinx.android.synthetic.main.item_ordentrabajoc.view.*
-
 import kotlinx.android.synthetic.main.item_ordentrabajoca.view.*
-import kotlinx.android.synthetic.main.item_ordentrabajoca.view.linearLayoutDetails
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -42,13 +39,22 @@ class OrdenTrabajosCaAdapter
 
         fun bind(ordentrabajo: OrdenTrabajo) = with (itemView) {
 
-            tvIdOTCotextoca.text ="Orden de Trabajo"
-            tvIdOTCa.text = "${ordentrabajo.Id}"
-            tvClienteOTCa.text = "${ordentrabajo.fichaordentrabajo.Nombres} ${ordentrabajo.fichaordentrabajo.Apellidos}"
-            tvDireccionOTCa.text = "${ordentrabajo.fichaordentrabajo.DireccionDomicilio}"
-            tvTelefonoOTCa.text = "${ordentrabajo.fichaordentrabajo.TelefonoDomicilio}"
+            if (ordentrabajo.Tipo == "instalacion"){
+                tvIdOTCotextoca.text ="Instalación"
+                tvIdOTCa.text = "${ordentrabajo.Id}"
+                tvClienteOTCa.text = "${ordentrabajo.NombreCliente}"
+                tvDireccionOTCa.text = "${ordentrabajo.Direccion}"
+                tvTelefonoOTCa.text = "${ordentrabajo.Telefono}"
+                tvDañoOTCa.text = "Instalación en ${ordentrabajo.Referencia}"
+            }else{
+                tvIdOTCotextoca.text ="Orden de Trabajo"
+                tvIdOTCa.text = "${ordentrabajo.Id}"
+                tvClienteOTCa.text = "${ordentrabajo.fichaordentrabajo.Nombres} ${ordentrabajo.fichaordentrabajo.Apellidos}"
+                tvDireccionOTCa.text = "${ordentrabajo.fichaordentrabajo.DireccionDomicilio}"
+                tvTelefonoOTCa.text = "${ordentrabajo.fichaordentrabajo.TelefonoDomicilio}"
+                tvDañoOTCa.text = "Reparación de ${ordentrabajo.Dano}"
+            }
 
-            tvDañoOTCa.text = "Reparación de ${ordentrabajo.Dano}"
             val Id = tvIdOTCa.text.toString()
             val Activa = "en progreso"
             val jwt = preferences["jwt", ""]

@@ -65,7 +65,10 @@ interface ApiService {
     fun getOrdenesP(@Header(value = "Authorization") authHeader: String): Call<ArrayList<OrdenTrabajo>>
 
     companion object Factory {
-        private const val BASE_URL = "http://104.131.36.170/api/"
+        //private const val BASE_URL = "http://104.131.36.170/api/"
+         // NO IP DDNS private const val BASE_URL = "http://atvcable.sytes.net/api/"
+        //NGROK
+        private const val BASE_URL = "http://24cf73076622.ngrok.io/api/"
 
         fun create() : ApiService {
             val interceptor = HttpLoggingInterceptor()

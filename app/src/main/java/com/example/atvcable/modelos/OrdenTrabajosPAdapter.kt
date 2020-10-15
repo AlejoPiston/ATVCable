@@ -6,16 +6,13 @@ import android.transition.TransitionManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.atvcable.FragmentFinalizar
 import com.example.atvcable.OrdenTrabajosPActivity
 import com.example.atvcable.R
 import com.example.atvcable.util.PreferenceHelper
 import com.example.atvcable.util.PreferenceHelper.get
-import kotlinx.android.synthetic.main.fragment_ot_finalizar.view.*
 import kotlinx.android.synthetic.main.item_ordentrabajop.view.*
-import kotlinx.android.synthetic.main.item_ordentrabajop.view.linearLayoutDetails
+
 
 
 class OrdenTrabajosPAdapter
@@ -32,13 +29,21 @@ class OrdenTrabajosPAdapter
 
         fun bind(ordentrabajo: OrdenTrabajo) = with (itemView) {
 
-            tvIdOTCotextop.text ="Orden de Trabajo"
-            tvIdOTP.text = "${ordentrabajo.Id}"
-            tvClienteOTP.text = "${ordentrabajo.fichaordentrabajo.Nombres} ${ordentrabajo.fichaordentrabajo.Apellidos}"
-            tvDireccionOTP.text = "${ordentrabajo.fichaordentrabajo.DireccionDomicilio}"
-            tvTelefonoOTP.text = "${ordentrabajo.fichaordentrabajo.TelefonoDomicilio}"
-
-            tvDañoOTP.text = "Reparación de ${ordentrabajo.Dano}"
+            if (ordentrabajo.Tipo == "instalacion"){
+                tvIdOTCotextop.text ="Instalación"
+                tvIdOTP.text = "${ordentrabajo.Id}"
+                tvClienteOTP.text = "${ordentrabajo.NombreCliente}"
+                tvDireccionOTP.text = "${ordentrabajo.Direccion}"
+                tvTelefonoOTP.text = "${ordentrabajo.Telefono}"
+                tvDañoOTP.text = "Instalación en ${ordentrabajo.Referencia}"
+            }else{
+                tvIdOTCotextop.text ="Orden de Trabajo"
+                tvIdOTP.text = "${ordentrabajo.Id}"
+                tvClienteOTP.text = "${ordentrabajo.fichaordentrabajo.Nombres} ${ordentrabajo.fichaordentrabajo.Apellidos}"
+                tvDireccionOTP.text = "${ordentrabajo.fichaordentrabajo.DireccionDomicilio}"
+                tvTelefonoOTP.text = "${ordentrabajo.fichaordentrabajo.TelefonoDomicilio}"
+                tvDañoOTP.text = "Reparación de ${ordentrabajo.Dano}"
+            }
 
             val Id = tvIdOTP.text.toString()
             val Activa = "atendida"

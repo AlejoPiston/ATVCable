@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.atvcable.R
 import kotlinx.android.synthetic.main.item_ordentrabajo.view.*
 
+
 class OrdenTrabajosAdapter
     : RecyclerView.Adapter<OrdenTrabajosAdapter.ViewHolder>() {
     var ordenestrabajo = ArrayList<OrdenTrabajo>()
@@ -18,12 +19,22 @@ class OrdenTrabajosAdapter
 
 
         fun bind(ordentrabajo: OrdenTrabajo) = with (itemView) {
-            tvIdOT.text = "Orden de Trabajo ${ordentrabajo.Id}"
-            tvClienteOT.text = "${ordentrabajo.fichaordentrabajo.Nombres} ${ordentrabajo.fichaordentrabajo.Apellidos}"
-            tvDireccionOT.text = "${ordentrabajo.fichaordentrabajo.DireccionDomicilio}"
-            tvTelefonoOT.text = "${ordentrabajo.fichaordentrabajo.TelefonoDomicilio}"
+            if (ordentrabajo.Tipo == "instalacion"){
 
-            tvDañoOT.text = "Reparación de ${ordentrabajo.Dano}"
+                tvIdOT.text = "Instalación ${ordentrabajo.Id}"
+                tvClienteOT.text = "${ordentrabajo.NombreCliente}"
+                tvDireccionOT.text = "${ordentrabajo.Direccion}"
+                tvTelefonoOT.text = "${ordentrabajo.Telefono}"
+                tvDañoOT.text = "Instalación en ${ordentrabajo.Referencia}"
+            }else{
+
+                tvIdOT.text = "Orden de Trabajo ${ordentrabajo.Id}"
+                tvClienteOT.text = "${ordentrabajo.fichaordentrabajo.Nombres} ${ordentrabajo.fichaordentrabajo.Apellidos}"
+                tvDireccionOT.text = "${ordentrabajo.fichaordentrabajo.DireccionDomicilio}"
+                tvTelefonoOT.text = "${ordentrabajo.fichaordentrabajo.TelefonoDomicilio}"
+                tvDañoOT.text = "Reparación de ${ordentrabajo.Dano}"
+            }
+
 
             tvFechaROT.text = "Registrada el ${ordentrabajo.createdAt}"
             tvEstadoOT.text = "${ordentrabajo.Activa}"
