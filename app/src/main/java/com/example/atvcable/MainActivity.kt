@@ -33,7 +33,8 @@ class MainActivity : AppCompatActivity() {
 
         val preferences = PreferenceHelper.defaultPrefs(this)
         if (preferences["jwt", ""].contains("."))
-            goToMenuActivity()
+
+           goToMenuActivity(nombreT = "")
 
         btnLogin.setOnClickListener {
             performLogin()
@@ -65,8 +66,10 @@ class MainActivity : AppCompatActivity() {
                     }
                     if (loginResponse.success) {
                         createSessionPreference(loginResponse.jwt)
-                        toast("Bienvenido ${loginResponse.user.name} ${loginResponse.user.Apellidos}")
-                        goToMenuActivity(true)
+                        var nombreTecnico = "${loginResponse.user.name} ${loginResponse.user.Apellidos}"
+                        toast("Bienvenido ${nombreTecnico}")
+                        goToMenuActivity(nombreTecnico,true)
+
                     } else{
                         toast("Las credenciales son incorrectas")
                     }
@@ -82,10 +85,12 @@ class MainActivity : AppCompatActivity() {
         val preferences = PreferenceHelper.defaultPrefs(this)
         preferences["jwt"] = jwt
     }
-    private fun goToMenuActivity(isUserInput: Boolean = false){
+    private fun goToMenuActivity(nombreT: String, isUserInput: Boolean = false){
         val intent = Intent(this, MenuActivity::class.java)
         if (isUserInput) {
             intent.putExtra("store_token", true)
+
+            intent.putExtra("nombreT", nombreT)
         }
 
         startActivity(intent)

@@ -11,6 +11,7 @@ import com.example.atvcable.util.PreferenceHelper.get
 import com.example.atvcable.util.toast
 import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.activity_menu.*
+import kotlinx.android.synthetic.main.fragment_ot_cancelar.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -29,12 +30,16 @@ class MenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
+        var nt = intent.getStringExtra("nombreT")
+        tvNombreTecnico.text = nt
 
         val storeToken = intent.getBooleanExtra("store_token", false)
         if (storeToken)
             storeToken()
 
         setOnClickListeners()
+
+
     }
     private fun setOnClickListeners() {
 

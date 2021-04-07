@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "974620640698",
-    "firebase_url": "https://atvcable-5becc.firebaseio.com",
-    "project_id": "atvcable-5becc",
-    "storage_bucket": "atvcable-5becc.appspot.com"
+    "project_number": "595312568947",
+    "firebase_url": "https://atv-cable.firebaseio.com",
+    "project_id": "atv-cable",
+    "storage_bucket": "atv-cable.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:974620640698:android:14f20c6def350f58ba8983",
+        "mobilesdk_app_id": "1:595312568947:android:658b75c76a91db448d1806",
         "android_client_info": {
           "package_name": "com.example.atvcable"
         }
       },
       "oauth_client": [
         {
-          "client_id": "974620640698-35muslkurfjrkdje3rm7g27drhnvrj8s.apps.googleusercontent.com",
+          "client_id": "595312568947-s9t077i68l58obetj119erroe6qnbm6k.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAZX0TmfVL6egQqqi1p07M_yzkvcYmMxQg"
+          "current_key": "AIzaSyCZOTWTYnJeZm2hdLe1adu4fgUo7hXV9B8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "974620640698-35muslkurfjrkdje3rm7g27drhnvrj8s.apps.googleusercontent.com",
+              "client_id": "595312568947-s9t077i68l58obetj119erroe6qnbm6k.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

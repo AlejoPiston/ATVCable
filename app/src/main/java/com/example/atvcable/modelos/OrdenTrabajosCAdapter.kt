@@ -80,7 +80,7 @@ class OrdenTrabajosCAdapter
 
                         var Latitud = ordenTrabajosCActivity.mLastLocation.latitude.toString()
                         val Longitud = ordenTrabajosCActivity.mLastLocation.longitude.toString()
-                        val call = apiService.postOrdenTrabajo(authHeader, Id, Activa, Latitud, Longitud, Resultado = "") //(authHeader, Activa, phone, address)
+                        val call = apiService.postOrdenTrabajo(authHeader, Id, Activa, Latitud, Longitud, Resultado = "", FechaHoraArrivo = "", FechaHoraSalida = "") //(authHeader, Activa, phone, address)
                         call.enqueue(object: Callback<Void> {
                             override fun onFailure(call: Call<Void>, t: Throwable) {
                                 Toast.makeText(itemView.context, t.localizedMessage, Toast.LENGTH_SHORT).show()

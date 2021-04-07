@@ -15,7 +15,7 @@
         android:gravity="center_horizontal"
         android:layout_height="60dp"
         android:textColor="@color/white"
-        android:text="Bienvenido"
+        android:text="BIENVENIDO"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
     <TextView
         android:id="@+id/tvNombreTecnico"

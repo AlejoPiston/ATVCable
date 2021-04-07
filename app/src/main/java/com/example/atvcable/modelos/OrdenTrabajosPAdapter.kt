@@ -69,10 +69,13 @@ class OrdenTrabajosPAdapter
                     btnFinalizarOTP.setOnClickListener {
                         // Obtienes el texto
                         val texto = ordentrabajo.Id.toString()
+                        val fechahoraarrivo = ordentrabajo.FechaHoraArrivo.toString()
                         // Creamos un nuevo Bundle
                         val args = Bundle()
                         // Colocamos el String
                         args.putString("idot", texto)
+                        args.putString("fha", fechahoraarrivo)
+
                         // Supongamos que tu Fragment se llama TestFragment. Colocamos este nuevo Bundle como argumento en el fragmento.
                         ordenTrabajosPActivity.botonFragmentFinalizar.arguments = args
 

@@ -21,6 +21,9 @@ import kotlinx.android.synthetic.main.item_ordentrabajoca.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class OrdenTrabajosCaAdapter
@@ -78,9 +81,17 @@ class OrdenTrabajosCaAdapter
                     ibExpandca.setImageResource(R.drawable.ic_minimizar)
                     btnSolucionarOTCa.setOnClickListener {
 
+
+                        val c: Calendar = Calendar.getInstance()
+                        val df = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+                        val formattedDate: String = df.format(c.getTime())
+                        val FechaHoraArrivo = formattedDate
+                        val Resultado = ""
+
                         var Latitud = ordenTrabajosCaActivity.mLastLocation.latitude.toString()
                         val Longitud = ordenTrabajosCaActivity.mLastLocation.longitude.toString()
-                        val call = apiService.postOrdenTrabajo(authHeader, Id, Activa, Latitud, Longitud, Resultado = "") //(authHeader, Activa, phone, address)
+
+                        val call = apiService.postOrdenTrabajo(authHeader, Id, Activa, Latitud, Longitud, Resultado, FechaHoraArrivo, FechaHoraSalida = "") //(authHeader, Activa, phone, address)
                         call.enqueue(object: Callback<Void> {
                             override fun onFailure(call: Call<Void>, t: Throwable) {
                                 Toast.makeText(itemView.context, t.localizedMessage, Toast.LENGTH_SHORT).show()

@@ -26,7 +26,9 @@ interface ApiService {
         @Query("Activa") Activa: String,
         @Query("Latitud") Latitud: String,
         @Query("Longitud") Longitud: String,
-        @Query("Resultado") Resultado: String
+        @Query("Resultado") Resultado: String,
+        @Query("FechaHoraArrivo") FechaHoraArrivo: String,
+        @Query("FechaHoraSalida") FechaHoraSalida: String
 
         //@Query("address") address: String
     ): Call<Void>
@@ -68,7 +70,10 @@ interface ApiService {
         //private const val BASE_URL = "http://104.131.36.170/api/"
          // NO IP DDNS private const val BASE_URL = "http://atvcable.sytes.net/api/"
         //NGROK
-        private const val BASE_URL = "http://24cf73076622.ngrok.io/api/"
+        private const val BASE_URL = "http://9e0bb88fddfa.ngrok.io/api/"
+
+        //private const val BASE_URL = "http://d4e79d61f4dd.ngrok.io/api/"
+
 
         fun create() : ApiService {
             val interceptor = HttpLoggingInterceptor()
